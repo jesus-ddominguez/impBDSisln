@@ -67,8 +67,8 @@ CREATE TABLE UserStatsPicks(
 
 CREATE TABLE User(
     id int (16) NOT NULL,
-    username varchar(255) NOT NULL,
-    password varchar(255) NOT NULL,
+    username varchar(50) NOT NULL,
+    password varchar(50) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -85,8 +85,8 @@ CREATE TABLE UserScorePicks(
 
 CREATE TABLE HockeyTeam(
     id int (16) NOT NULL,
-    name varchar(255) NOT NULL,
-    logo varchar(255),
+    name varchar(100) NOT NULL,
+    logo varchar(100),
     PRIMARY KEY (id)
 );
 
@@ -94,8 +94,8 @@ CREATE TABLE HockeyTeam(
 CREATE TABLE HockeyTeamPlayer(
     id int (16) NOT NULL,
     hockeyTeamId int (13) NOT NULL,
-    firstName varchar(255) NOT NULL,
-    lastName varchar(255) NOT NULL,
+    firstName varchar(25) NOT NULL,
+    lastName varchar(25) NOT NULL,
     jerseyNum int (13),
     position varchar(255),
     PRIMARY KEY (id)
@@ -104,9 +104,9 @@ CREATE TABLE HockeyTeamPlayer(
 
 CREATE TABLE UserInfo(
     id int (16) NOT NULL,
-    firstName varchar(255) NOT NULL,
-    lastName varchar(255) NOT NULL,
-    email varchar(255) NOT NULL,
+    firstName varchar(25) NOT NULL,
+    lastName varchar(25) NOT NULL,
+    email varchar(25) NOT NULL,
     round1Points int (13),
     round2Points int (13),
     round3Points int (13),
