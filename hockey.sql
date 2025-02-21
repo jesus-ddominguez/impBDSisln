@@ -97,7 +97,7 @@ CREATE TABLE HockeyTeamPlayer(
     firstName varchar(25) NOT NULL,
     lastName varchar(25) NOT NULL,
     jerseyNum int (13),
-    position varchar(255),
+    position varchar(30),
     PRIMARY KEY (id)
 );
 
