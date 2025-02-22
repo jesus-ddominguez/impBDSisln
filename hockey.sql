@@ -113,3 +113,34 @@ CREATE TABLE UserInfo(
     round4Points int (13),
     PRIMARY KEY (id)
 );
+
+INSERT into playoffround (id,team1id,team2id,startTime, endTime,roundNum) 
+values (1,1,2,'2025/02/20 20:00:00','2025/02/20 23:00:00',3 );
+
+INSERT into HockeyGame (id, roundId, startTime, endTime, description, team1Id, team2Id)
+values (1, 1, '2025-02-20 14:30', '2025-02-20 16:30', 'Quarterfinals', 1, 2);
+
+INSERT into GameScores (id, team1Score, team2Score)
+values (1, 3, 2);
+
+INSERT into RoundStats (id, numShutouts, goalLeaderId, assistLeaderId, penaltyLeaderId, plusMinusLeaderId, faceoffsWonLeaderId, sogLeaderId)
+values (1, 2, 10, 15, 12, 8, 14, 20);
+
+INSERT into UserStatsPicks (id, roundId, goalLeaderId, assistLeaderId, penaltyLeaderId, plusMinusLeaderId, faceoffsWonLeaderId, sogLeaderId, numShutouts, userId)
+values (1, 1, 10, 15, 12, 8, 14, 20, 2, 2);
+
+INSERT into User (id, username, password)
+values (1, 'jgraham', 'password123');
+
+INSERT INTO UserScorePicks (id, hockeyGameId, team1Score, team2Score, userId)
+values (1, 1, 3, 2, 1);
+
+INSERT into HockeyTeam (id, name, logo)
+values(1, 'Team A', 'logoA.png');
+
+INSERT into HockeyTeamPlayer (id, hockeyTeamId, firstName, lastName, jerseyNum, position)
+values (1, 1, 'John', 'Hayden', 99, 'Forward');
+
+INSERT into UserInfo (id, firstName, lastName, email, round1Points, round2Points, round3Points, round4Points)
+values (1, 'John', 'Hayden', 'john.hayden@example.com', 10, 15, 20, 25);
+ 
