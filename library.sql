@@ -1,3 +1,18 @@
+/*
+Implemetacion de una base de datos relacional en un sistema de informacion
+2025/21/02 4-J
+Alumno-
+Operaciones con Joins
+
+Realizar 
+ INNER JOIN
+ LEFT OUTER JOIN
+ RIGHT OUTER JOIN
+ JOIN NATURAL
+ LEFT EXCLUDING JOIN
+ LEFT EXCLUDING JOIN
+ */
+
 CREATE TABLE BOOKS (
  ID INT PRIMARY KEY IDENTITY (1, 1),
  NAME VARCHAR(50) NOT NULL,
