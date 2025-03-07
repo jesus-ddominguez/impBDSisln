@@ -1,0 +1,330 @@
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 16034241
+Server version: 8.0.40 Source distribution
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show tables;
++------------------------------+
+| Tables_in_jesusde$negrita000 |
++------------------------------+
+| AUTHORS                      |
+| BOOKS                        |
+| CATEGORIES                   |
++------------------------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT BOOKS.NAME AS BookName, CATEGORIES.NAME AS CategoryName
+    -> FROM BOOKS
+    -> INNER JOIN CATEGORIES ON BOOKS.CATEGORYID = CATEGORIES.ID;
++----------+--------------+
+| BookName | CategoryName |
++----------+--------------+
+| Book-A   | Cat-A        |
+| Book-B   | Cat-B        |
+| Book-E   | Cat-C        |
+| Book-D   | Cat-C        |
+| Book-C   | Cat-C        |
+| Book-F   | Cat-D        |
+| Book-H   | Cat-E        |
+| Book-G   | Cat-E        |
+| Book-I   | Cat-G        |
++----------+--------------+
+9 rows in set (0.01 sec)
+
+mysql> SELECT BOOKS.NAME AS BookName, AUTHORS.NAME AS AuthorName
+    -> FROM BOOKS
+    -> INNER JOIN AUTHORS ON BOOKS.AUTHORID = AUTHORS.ID;
++----------+------------+
+| BookName | AuthorName |
++----------+------------+
+| Book-D   | Author-A   |
+| Book-E   | Author-A   |
+| Book-F   | Author-A   |
+| Book-A   | Author-B   |
+| Book-B   | Author-B   |
+| Book-C   | Author-B   |
+| Book-G   | Author-E   |
+| Book-H   | Author-F   |
+| Book-I   | Author-H   |
++----------+------------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT BOOKS.NAME AS BookName, CATEGORIES.NAME AS CategoryName
+    -> FROM BOOKS
+    -> LEFT OUTER JOIN CATEGORIES ON BOOKS.CATEGORYID = CATEGORIES.ID;
++----------+--------------+
+| BookName | CategoryName |
++----------+--------------+
+| Book-A   | Cat-A        |
+| Book-B   | Cat-B        |
+| Book-C   | Cat-C        |
+| Book-D   | Cat-C        |
+| Book-E   | Cat-C        |
+| Book-F   | Cat-D        |
+| Book-G   | Cat-E        |
+| Book-H   | Cat-E        |
+| Book-I   | Cat-G        |
++----------+--------------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT BOOKS.NAME AS BookName, AUTHORS.NAME AS AuthorName
+    -> FROM BOOKS
+    -> LEFT OUTER JOIN AUTHORS ON BOOKS.AUTHORID = AUTHORS.ID;
++----------+------------+
+| BookName | AuthorName |
++----------+------------+
+| Book-A   | Author-B   |
+| Book-B   | Author-B   |
+| Book-C   | Author-B   |
+| Book-D   | Author-A   |
+| Book-E   | Author-A   |
+| Book-F   | Author-A   |
+| Book-G   | Author-E   |
+| Book-H   | Author-F   |
+| Book-I   | Author-H   |
++----------+------------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT BOOKS.NAME AS BookName, CATEGORIES.NAME AS CategoryName
+    -> FROM BOOKS
+    -> RIGHT OUTER JOIN CATEGORIES ON BOOKS.CATEGORYID = CATEGORIES.ID;
++----------+--------------+
+| BookName | CategoryName |
++----------+--------------+
+| Book-A   | Cat-A        |
+| Book-B   | Cat-B        |
+| Book-C   | Cat-C        |
+| Book-D   | Cat-C        |
+| Book-E   | Cat-C        |
+| Book-F   | Cat-D        |
+| Book-G   | Cat-E        |
+| Book-H   | Cat-E        |
+| NULL     | Cat-F        |
+| Book-I   | Cat-G        |
+| NULL     | Cat-H        |
+| NULL     | Cat-I        |
++----------+--------------+
+12 rows in set (0.00 sec)
+
+mysql> -- INNER JOIN 
+mysql> SELECT BOOKS.NAME AS BookName, CATEGORIES.NAME AS CategoryName
+    -> FROM BOOKS
+    -> INNER JOIN CATEGORIES ON BOOKS.CATEGORYID = CATEGORIES.ID;
++----------+--------------+
+| BookName | CategoryName |
++----------+--------------+
+| Book-A   | Cat-A        |
+| Book-B   | Cat-B        |
+| Book-C   | Cat-C        |
+| Book-D   | Cat-C        |
+| Book-E   | Cat-C        |
+| Book-F   | Cat-D        |
+| Book-G   | Cat-E        |
+| Book-H   | Cat-E        |
+| Book-I   | Cat-G        |
++----------+--------------+
+9 rows in set (0.00 sec)
+
+mysql> 
+mysql> -- INNER JOIN
+mysql> SELECT BOOKS.NAME AS BookName, AUTHORS.NAME AS AuthorName
+    -> FROM BOOKS
+    -> INNER JOIN AUTHORS ON BOOKS.AUTHORID = AUTHORS.ID;
++----------+------------+
+| BookName | AuthorName |
++----------+------------+
+| Book-A   | Author-B   |
+| Book-B   | Author-B   |
+| Book-C   | Author-B   |
+| Book-D   | Author-A   |
+| Book-E   | Author-A   |
+| Book-F   | Author-A   |
+| Book-G   | Author-E   |
+| Book-H   | Author-F   |
+| Book-I   | Author-H   |
++----------+------------+
+9 rows in set (0.00 sec)
+
+mysql> 
+mysql> -- LEFT OUTER JOIN
+mysql> SELECT BOOKS.NAME AS BookName, CATEGORIES.NAME AS CategoryName
+    -> FROM BOOKS
+    -> LEFT OUTER JOIN CATEGORIES ON BOOKS.CATEGORYID = CATEGORIES.ID;
++----------+--------------+
+| BookName | CategoryName |
++----------+--------------+
+| Book-A   | Cat-A        |
+| Book-B   | Cat-B        |
+| Book-C   | Cat-C        |
+| Book-D   | Cat-C        |
+| Book-E   | Cat-C        |
+| Book-F   | Cat-D        |
+| Book-G   | Cat-E        |
+| Book-H   | Cat-E        |
+| Book-I   | Cat-G        |
++----------+--------------+
+9 rows in set (0.00 sec)
+
+mysql> 
+mysql> -- LEFT OUTER JOIN 
+mysql> SELECT BOOKS.NAME AS BookName, AUTHORS.NAME AS AuthorName
+    -> FROM BOOKS
+    -> LEFT OUTER JOIN AUTHORS ON BOOKS.AUTHORID = AUTHORS.ID;
++----------+------------+
+| BookName | AuthorName |
++----------+------------+
+| Book-A   | Author-B   |
+| Book-B   | Author-B   |
+| Book-C   | Author-B   |
+| Book-D   | Author-A   |
+| Book-E   | Author-A   |
+| Book-F   | Author-A   |
+| Book-G   | Author-E   |
+| Book-H   | Author-F   |
+| Book-I   | Author-H   |
++----------+------------+
+9 rows in set (0.00 sec)
+
+mysql> 
+mysql> -- RIGHT OUTER JOIN 
+mysql> SELECT BOOKS.NAME AS BookName, CATEGORIES.NAME AS CategoryName
+    -> FROM BOOKS
+    -> RIGHT OUTER JOIN CATEGORIES ON BOOKS.CATEGORYID = CATEGORIES.ID;
++----------+--------------+
+| BookName | CategoryName |
++----------+--------------+
+| Book-A   | Cat-A        |
+| Book-B   | Cat-B        |
+| Book-C   | Cat-C        |
+| Book-D   | Cat-C        |
+| Book-E   | Cat-C        |
+| Book-F   | Cat-D        |
+| Book-G   | Cat-E        |
+| Book-H   | Cat-E        |
+| NULL     | Cat-F        |
+| Book-I   | Cat-G        |
+| NULL     | Cat-H        |
+| NULL     | Cat-I        |
++----------+--------------+
+12 rows in set (0.00 sec)
+
+mysql> 
+mysql> -- RIGHT OUTER JOIN
+mysql> SELECT BOOKS.NAME AS BookName, AUTHORS.NAME AS AuthorName
+    -> FROM BOOKS
+    -> RIGHT OUTER JOIN AUTHORS ON BOOKS.AUTHORID = AUTHORS.ID;
++----------+------------+
+| BookName | AuthorName |
++----------+------------+
+| Book-D   | Author-A   |
+| Book-E   | Author-A   |
+| Book-F   | Author-A   |
+| Book-A   | Author-B   |
+| Book-B   | Author-B   |
+| Book-C   | Author-B   |
+| NULL     | Author-C   |
+| NULL     | Author-D   |
+| Book-G   | Author-E   |
+| Book-H   | Author-F   |
+| NULL     | Author-G   |
+| Book-I   | Author-H   |
+| NULL     | Author-I   |
++----------+------------+
+13 rows in set (0.00 sec)
+
+mysql> 
+mysql> -- NATURAL JOIN 
+mysql> SELECT BOOKS.NAME AS BookName, CATEGORIES.NAME AS CategoryName
+    -> FROM BOOKS
+    -> NATURAL JOIN CATEGORIES;
+Empty set (0.00 sec)
+
+mysql> 
+mysql> -- NATURAL JOIN 
+mysql> SELECT BOOKS.NAME AS BookName, AUTHORS.NAME AS AuthorName
+    -> FROM BOOKS
+    -> NATURAL JOIN AUTHORS;
+Empty set (0.00 sec)
+
+mysql> 
+mysql> -- LEFT EXCLUDING JOIN 
+mysql> SELECT BOOKS.NAME AS BookName, CATEGORIES.NAME AS CategoryName
+    -> FROM BOOKS
+    -> LEFT JOIN CATEGORIES ON BOOKS.CATEGORYID = CATEGORIES.ID
+    -> WHERE CATEGORIES.ID IS NULL;
+Empty set (0.00 sec)
+
+mysql> 
+mysql> -- LEFT EXCLUDING JOIN 
+mysql> SELECT BOOKS.NAME AS BookName, AUTHORS.NAME AS AuthorName
+    -> FROM BOOKS
+    -> LEFT JOIN AUTHORS ON BOOKS.AUTHORID = AUTHORS.ID
+    -> WHERE AUTHORS.ID IS NULL;
+Empty set (0.00 sec)
+
+mysql> 
+mysql> -- RIGHT EXCLUDING JOIN 
+mysql> SELECT BOOKS.NAME AS BookName, CATEGORIES.NAME AS CategoryName
+    -> FROM BOOKS
+    -> RIGHT JOIN CATEGORIES ON BOOKS.CATEGORYID = CATEGORIES.ID
+    -> WHERE BOOKS.ID IS NULL;
++----------+--------------+
+| BookName | CategoryName |
++----------+--------------+
+| NULL     | Cat-F        |
+| NULL     | Cat-H        |
+| NULL     | Cat-I        |
++----------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> 
+mysql> -- RIGHT EXCLUDING JOIN 
+mysql> SELECT BOOKS.NAME AS BookName, AUTHORS.NAME AS AuthorName
+    -> FROM BOOKS
+    -> RIGHT JOIN AUTHORS ON BOOKS.AUTHORID = AUTHORS.ID
+    -> WHERE BOOKS.ID IS NULL;
++----------+------------+
+| BookName | AuthorName |
++----------+------------+
+| NULL     | Author-C   |
+| NULL     | Author-D   |
+| NULL     | Author-G   |
+| NULL     | Author-I   |
++----------+------------+
+4 rows in set (0.00 sec)
+mysql> SELECT * from BookName;
+ERROR 1146 (42S02): Table 'jesusde$negrita000.BookName' doesn't exist
+mysql> show tables;
++------------------------------+
+| Tables_in_jesusde$negrita000 |
++------------------------------+
+| AUTHORS                      |
+| BOOKS                        |
+| CATEGORIES                   |
++------------------------------+
+3 rows in set (0.00 sec)
+mysql> SELECT * from BOOKS;
++----+--------+-------+------------+----------+
+| ID | NAME   | PRICE | CATEGORYID | AUTHORID |
++----+--------+-------+------------+----------+
+|  1 | Book-A |   100 |          1 |        2 |
+|  2 | Book-B |   200 |          2 |        2 |
+|  3 | Book-C |   150 |          3 |        2 |
+|  4 | Book-D |   100 |          3 |        1 |
+|  5 | Book-E |   200 |          3 |        1 |
+|  6 | Book-F |   150 |          4 |        1 |
+|  7 | Book-G |   100 |          5 |        5 |
+|  8 | Book-H |   200 |          5 |        6 |
+|  9 | Book-I |   150 |          7 |        8 |
++----+--------+-------+------------+----------+
+9 rows in set (0.00 sec)
