@@ -28,7 +28,7 @@ FROM Iteraciones
 )
 SELECT
 desarrollo,
-ROUND(AVG(DATEDIFF(terminacion, terminacion_previa)), 0) AS promedio
+AVG(DATEDIFF(terminacion, terminacion_previa)) AS promedio
 FROM cte
 WHERE terminacion_previa IS NOT NULL
 GROUP BY desarrollo;
